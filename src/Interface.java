@@ -25,9 +25,9 @@ public class Interface  {
         String data[][] = { { "Ro", "Row", "Row","g","m","","","",""}};
         String column[] = {"ID", "TYPE","CAPACITY","STATE","NBREQUEST","SERVICE","REQUEST","RANGE","POSITION"};
         final JTable jt = new JTable(data, column);
-     //   jt.setBounds(0,0,300,300);
+        //   jt.setBounds(0,0,300,300);
 
-      //  jt.setCellSelectionEnabled(true);
+        //  jt.setCellSelectionEnabled(true);
       /*  ListSelectionModel select = jt.getSelectionModel();
         select.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         select.addListSelectionListener(new ListSelectionListener() {
@@ -53,14 +53,15 @@ public class Interface  {
                 text.setText("are you sure");
                 JButton b=new JButton("ok");
                 JButton b1=new JButton("cancel");
-               Box box=Box.createHorizontalBox();
+                Box box=Box.createHorizontalBox();
 
-               box.add(b);
+                box.add(b);
                 box.add(Box.createHorizontalStrut(10));
-               box.add(b1);
+                box.add(b1);
+
                 d.add(text,BorderLayout.NORTH);
 
-               d.add(box,BorderLayout.SOUTH);
+                d.add(box,BorderLayout.SOUTH);
 
                 d.setVisible(true);
             }
@@ -70,70 +71,62 @@ public class Interface  {
                 JFrame f1=new JFrame();
 
                 JDialog d=new JDialog(f1,"Add sensor",true);
-                d.setSize(500,500);
+                d.setSize(400,400);
                 JLabel type=new JLabel("type:");
+                type.setBounds(0,0,80,20);
+                d.setLayout(null);
+                d.add(type);
                 JLabel service=new JLabel("service:");
+                service.setBounds(0,20,80,20);
                 JLabel capacity=new JLabel("capacity:");
-                JLabel request=new JLabel("request;");
-                JLabel nbrequest=new JLabel("nbrequest:");
+                capacity.setBounds(0,40,80,20);
+
                 JLabel range=new JLabel("range:");
+                range.setBounds(0,60,80,20);
                 JLabel position=new JLabel("position:");
-                JLabel state=new JLabel("state:");
-                JButton button =new JButton("add");
-                button.setBounds(470,13,50,20);
-                Box box=Box.createVerticalBox();
-                box.add(type);
-                box.add(Box.createVerticalStrut(40));
-                box.add(service);
-                box.add(Box.createVerticalStrut(40));
-                box.add(capacity);
-                box.add(Box.createVerticalStrut(40));
-                box.add(request);
-                box.add(Box.createVerticalStrut(40));
-                box.add(nbrequest);
-                box.add(Box.createVerticalStrut(40));
-                box.add(range);
-                box.add(Box.createVerticalStrut(40));
-                box.add(position);
-                box.add(Box.createVerticalStrut(40));
-                box.add(state);
-                box.add(Box.createVerticalStrut(50));
+                position.setBounds(0,80,80,20);
 
 
+                JLabel typesensor=new JLabel("typeSensor:");
+                typesensor.setBounds(0,100,80,20);
+                d.add(service);
+                d.add(capacity);
+                d.add(range);
+                d.add(position);
+                d.add(typesensor);
+
+                String TypeSensor[]={"Base","Router"};
+                JComboBox comboBox =new JComboBox(TypeSensor);
+                comboBox.setBounds(80,100,200,20);
+                d.add(comboBox);
                 JTextField typet=new JTextField();
-                typet.setPreferredSize(new Dimension(30,5));
+                typet.setBounds(80,0,200,20);
+                d.add(typet);
                 JTextField servicet=new JTextField();
-                servicet.setPreferredSize(new Dimension(30,5));
+                servicet.setBounds(80,20,200,20);
+                d.add(servicet);
                 JTextField capacityt=new JTextField();
-                capacityt.setSize(100,20);
-                JTextField requestt=new JTextField();
-                requestt.setSize(100,20);
-                JTextField nbrequestt=new JTextField();
-                JTextField ranget=new JTextField();
-                JTextField positiont=new JTextField();
-                JTextField statet=new JTextField();
-                Box boxt=Box.createVerticalBox();
-                boxt.add(typet);
-                boxt.add(servicet);
-                boxt.add(capacityt);
-                boxt.add(requestt);
-                boxt.add(nbrequestt);
-                boxt.add(ranget);
-                boxt.add(positiont);
-                boxt.add(statet);
-                JButton b1=new JButton("cancel");
-                Box box2=Box.createHorizontalBox();
-                box2.add(button);
-                box2.add(Box.createHorizontalStrut(20));
-                box2.add(b1);
+                capacityt.setBounds(80,40,200,20);
+                d.add(capacityt);
 
-                d.add(box,BorderLayout.WEST);
-                d.add(boxt,BorderLayout.CENTER);
-                d.add(box2,BorderLayout.SOUTH);
+                JTextField ranget=new JTextField();
+                ranget.setBounds(80,60,200,20);
+                d.add(ranget);
+                JTextField positiont=new JTextField();
+                positiont.setBounds(80,80,200,20);
+                d.add(positiont);
+                JButton buttonadd =new JButton("add");
+                buttonadd.setBounds(0,200,60,23);
+                d.add(buttonadd);
+                JButton b1=new JButton("cancel");
+                b1.setBounds(70,200,80,23);
+                d.add(b1);
+
+
                 d.setVisible(true);
             }
         };
-       jt.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+        jt.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent event) {
                 // do some actions here, for example
                 // print first column value from selected row
@@ -141,7 +134,7 @@ public class Interface  {
                 System.out.println(jt.getValueAt(jt.getSelectedRow(), 0).toString());
             }
         });
-      JScrollPane sp = new JScrollPane(jt);
+        JScrollPane sp = new JScrollPane(jt);
 
         panel.add(sp,BorderLayout.EAST);
 
@@ -166,7 +159,7 @@ public class Interface  {
         box.add(jbt3);
         box.add(Box.createVerticalStrut(10));
         box.add(jbt4);
-       p1.add(box);
+        p1.add(box);
 
         f.add(panel,BorderLayout.LINE_START);
 
